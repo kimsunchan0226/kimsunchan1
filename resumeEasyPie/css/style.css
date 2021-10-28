@@ -1,0 +1,138 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+/* font-family: 'Righteous', cursive; */
+
+.blind {
+    display: inline-block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    border:1px solid #000;
+    height:100%
+}
+
+header {
+    position: fixed; z-index:9999999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ddd;
+    height: 60px;
+}
+
+h1 {
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 60px
+}
+
+nav {
+    float: right
+}
+
+#menu li {
+    display: inline-block;
+    margin-left: 30px
+}
+#menu a {
+    font-family: righteous;
+    font-size: 20px;
+    color: #000;
+    text-align: right;
+    line-height: 60px
+}
+#menu > li.on > a { text-decoration:underline }
+
+#menu > li:nth-child(1).on > a { color:#f00;  }
+#menu > li:nth-child(2).on > a { color:orange;  }
+#menu > li:nth-child(3).on > a { color:yellow; }
+#menu > li:nth-child(4).on > a { color:green;  }
+
+section {
+    height: 100%;
+}
+
+article {
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+}
+
+#intro {
+    background: orangered
+}
+
+#skill {
+    background: skyblue
+}
+
+#portfolio {
+    background: pink
+}
+
+#contact {
+    background: orange
+}
+
+.tit {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 10px
+}
+
+.container { float:left; width:33.33%; text-align:center; position:relative}
+.pBox { width:180px; height:180px; position:absolute; line-height:180px; }
+
+
+
+#contact { }
+#contact .form1 { width:60%; margin:50px auto; background:#fff;
+	padding:30px 10px }
+#contact table.contact { width:100%; }
+#contact table.contact td { padding:10px 6px }
+#contact table.contact th { padding:10px 6px; text-align:right;
+	vertical-align:middle }
+#contact table.contact th.memo,
+#contact table.contact th.info { vertical-align:top }
+
+#contact .form1 > p { text-align:center; padding:10px 0px } 
+#contact .form1 > p > button { padding:10px 20px; 
+		background:blue; color:#fff }
+table.contact .col1 { width:30%; }
+table.contact .col2 { width:70%; }
+
+table.contact #irum,
+table.contact #email,
+table.contact #phone,
+table.contact #memo,
+table.contact #info { width:100%; border:1px solid #000; 
+	padding:10px }
+table.contact #memo { height:150px } 
+table.contact #info { height:200px; overflow-y:scroll }
+
+/* portfolio 구역 */
+#portfolio .tabTit li { float:left;   }
+#portfolio .tabTit li > a { display:block; background:#efefef;  text-align:center; padding:10px 0px; width:100px; 
+  border-radius:10px; margin:10px; }
+#portfolio .portList li { float:left; width:20%; padding:10px;
+    text-align:center; }
+
+
+
+
+
+
