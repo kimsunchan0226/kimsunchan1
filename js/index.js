@@ -1,3 +1,44 @@
+$(window).on("load", function(){
+    // skroll.recalcPosition();
+
+
+    $('#sect2 .card2 .lead').typeWrite({
+        speed:30, repeat:true, cursor:true
+    })
+    $('#sect2 .card1 ul li .lead1').typeWrite({
+        speed:30, repeat:true, cursor:true
+    })
+    $(".grid").isotope({
+       filter:"*",
+       layoutMode:'masonry', // fitRows, masonry
+       itemSelector:'.all',
+   })
+
+   $('.lodoing p').eq(0).stop().animate({opacity:1}, 400)
+   $('.lodoing p').eq(1).stop().animate({opacity:1}, 1800)
+   $('.lodoing p').eq(2).stop().animate({opacity:1}, 2900)
+   $('.lodoing p').eq(3).stop().animate({opacity:1}, 4000, function(){
+        $('.lodoing > div p').animate({
+            margin:'0 -120px'
+        },500, function(){
+            $(this).addClass('on')
+        })
+   })
+
+    $('.lodoing').delay(5000).fadeOut()
+
+})
+$('#sect4 .category a').on('click',function(){
+    $(this).addClass('on')
+    $(this).siblings().removeClass('on')
+    var filterValue = $(this).attr('data-filter')
+    $('.grid').isotope({
+        filter:filterValue,
+        layoutMode:'masonry', // fitRows, masonry
+        itemSelector:'.all',
+    })
+    return false
+})
 $('html, body').stop().animate({
     scrollLeft : 0
 }, 1000)
@@ -115,6 +156,7 @@ $('#sect2 .cbtn').on('click', function(){
         $('#sect2 .card').removeClass('on')
     }
 })
+
 // sect3 
 // function count(jumsu, cname, time) {
 //     let num = 0; 
@@ -345,41 +387,9 @@ $('body').on('click','.inlayer .prev',function(e){
     }
    gallery(linum)
 })
+
 // isotope 플러그인 연결 (갤러리필터링)
-$(window).on("load", function(){
-    // skroll.recalcPosition();
 
-    $(".grid").isotope({
-       filter:"*",
-       layoutMode:'masonry', // fitRows, masonry
-       itemSelector:'.all',
-   })
-
-   $('.lodoing p').eq(0).stop().animate({opacity:1}, 400)
-   $('.lodoing p').eq(1).stop().animate({opacity:1}, 1800)
-   $('.lodoing p').eq(2).stop().animate({opacity:1}, 2900)
-   $('.lodoing p').eq(3).stop().animate({opacity:1}, 4000, function(){
-        $('.lodoing > div p').animate({
-            margin:'0 -120px'
-        },500, function(){
-            $(this).addClass('on')
-        })
-   })
-
-    $('.lodoing').delay(5000).fadeOut()
-
-})
-$('#sect4 .category a').on('click',function(){
-    $(this).addClass('on')
-    $(this).siblings().removeClass('on')
-    var filterValue = $(this).attr('data-filter')
-    $('.grid').isotope({
-        filter:filterValue,
-        layoutMode:'masonry', // fitRows, masonry
-        itemSelector:'.all',
-    })
-    return false
-})
 
 $('#sect5 .formbox .btn button:first-child').on('click',function(){
     $(this).css({
