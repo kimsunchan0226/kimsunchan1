@@ -131,7 +131,7 @@ body { font:12px/1.6 arial;  }
 #menu li { font-family: 'Press Start 2P', cursive;}
 .sk { position: fixed; bottom: 30px; right: 90px; 
         font-size: 40px; z-index: 99999;
-        animation: skmove 1s infinite;
+        animation: skmove 1s 50;
         background: linear-gradient(to bottom, #f8c11d, #cc6018);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -401,7 +401,7 @@ section {
 }
 #sect4 ul {overflow: hidden;margin-left: 380px; }
 #sect4 ul li {
-        height: 400px;
+        /* height: 400px; */
         /* background: #fff;  */
         /* overflow: hidden; */
         /* border: 30px solid #fff; */

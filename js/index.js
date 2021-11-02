@@ -85,29 +85,35 @@ $(window).on('scroll', function(){
     if ( sct>=sDist0 && sct<sDist1) {
         $('#menu').removeClass('on')
         $('.sk i').eq(0).hide()
+        clickcount=0;
     } else if ( sct>=sDist1 && sct<sDist2 && !cflag) {
         $('#menu li').eq(0).addClass('on')
         $('#menu li').eq(0).siblings().removeClass('on')
         $('#menu').addClass('on')
         $('.sk i').eq(0).show()
         $('section').eq(1).addClass('on')
+        clickcount=1;
     } else if ( sct>=sDist2 && sct<sDist3 && !cflag) {
         $('#menu li').eq(1).addClass('on')
         $('#menu li').eq(1).siblings().removeClass('on')
         $('#menu').addClass('on')
         $('section').eq(1).siblings().removeClass('on')
+        clickcount=2;
     } else if ( sct>=sDist3 && sct<sDist4 && !cflag) {
         $('#menu li').eq(2).addClass('on')
         $('#menu li').eq(2).siblings().removeClass('on')
         $('#menu').addClass('on')
+        clickcount=3;
     } else if ( sct>=sDist4 && sct<lastSect && !cflag ) {
         $('#menu li').eq(3).addClass('on')
         $('#menu li').eq(3).siblings().removeClass('on')
         $('#menu').addClass('on')
         $('.sk i').eq(1).show()
+        clickcount=4;
     } else if ( sct>=lastSect ) {
         $('#menu').removeClass('on')
         $('.sk i').eq(1).hide()
+        clickcount=5;
     }
 
 })
@@ -265,13 +271,13 @@ $('#sect4 ul li a').on('click',function(e){
     e.preventDefault()
     linum = $(this).parent().index()
     var src1 = $(this).attr('data-src1')
-    var src2 = $(this).attr('data-src2')
-    var src3 = $(this).attr('data-src3')
+    
     var href = $(this).attr('href')
     var desc1 = $(this).attr('data-desc1')
     var desc2 = $(this).attr('data-desc2')
+    var title = $(this).attr('title')
    
-    $('body').append(`<div class="outlayer"><div class="inlayer"><img src="${src1}" alt"" width="30%"><img src="${src2}" alt"" width="30%" style="margin:0 10px"><img src="${src3}" alt"" width="30%"><div class="text"><h2></h2><p class="p1" style="margin-top:90px">${desc1} </p><p class="p1">${desc2}</p><span></span><span></span></div></div></div>`)
+    $('body').append(`<div class="outlayer"><div class="inlayer"><img src="${src1}" alt"" style="width:40%; margin-right:20px"><div class="text"><h2></h2><p class="p1" style="margin-top:30px">${desc1} </p><p class="p1" style="margin-top:30px">${desc2}</p><span></span><span></span></div></div></div>`)
     $('.outlayer').css({
         position:'fixed',
         backgroundColor:'rgba(0,0,0,0.8)',
@@ -287,12 +293,13 @@ $('#sect4 ul li a').on('click',function(e){
         transform:'translate(-50%, -50%)',
         width:'1000px',
         margin:'0 auto',
-        textAlign:'center',fontSize:'20px', color:'#fff'
+        textAlign:'center',fontSize:'20px', color:'#fff',
+        fontFamily: 'Noto Sans KR'
     })
     .append('<button class="close"><i class="fas fa-times-circle"></i></button>')
-    .append(`<div><a href="${href}" target="_blank">사이트 이동하기</a></div>`)
-    .append('<button class="prev"><i class="fas fa-angle-left"></i></button><button class="next"><i class="fas fa-angle-right"></i></button>'
-    )
+    .append(`<div><a href="${href}" target="_blank" style="display : inline-block ;margin-top:30px">사이트 이동하기</a></div>`)
+    // .append('<button class="prev"><i class="fas fa-angle-left"></i></button><button class="next"><i class="fas fa-angle-right"></i></button>'
+    // )
     $('.inlayer button.close').css({
         border:'none',
         position:'absolute',
@@ -301,18 +308,18 @@ $('#sect4 ul li a').on('click',function(e){
         color:'#fff',
         fontSize:'50px'
     })
-    $('.inlayer .prev').css({
-        position:'absolute',
-        top:'50%', transform:'translateY(-50%)',
-        left:'-100px',fontSize:'80px',color:'#fff',
-        border:'none'
-    })
-    $('.inlayer .next').css({
-        position:'absolute',
-        top:'50%', transform:'translateY(-50%)',
-        right:'-100px',fontSize:'80px',color:'#fff',
-        border:'none'
-    })
+    // $('.inlayer .prev').css({
+    //     position:'absolute',
+    //     top:'50%', transform:'translateY(-50%)',
+    //     left:'-100px',fontSize:'80px',color:'#fff',
+    //     border:'none'
+    // })
+    // $('.inlayer .next').css({
+    //     position:'absolute',
+    //     top:'50%', transform:'translateY(-50%)',
+    //     right:'-100px',fontSize:'80px',color:'#fff',
+    //     border:'none'
+    // })
     $('.inlayer .text').css({
         display:'inline-block',
         width:"40%",
@@ -324,15 +331,15 @@ $('#sect4 ul li a').on('click',function(e){
     $('.inlayer .text h2').text(title).css({
         fontSize:'30px',
         textAlign:'center',
-        color:'green',
+        color:'black',
         margin:'10px 0'
     })
-    $('.inlayer .text .p1').text(desc1).css({
-        padding: '20px',
-        fontSize: '14px',
-        marginBottom: '10px',
-        marginTop:'30px'
-    })
+    // $('.inlayer .text .p1').text(desc1).css({
+    //     padding: '20px',
+    //     fontSize: '14px',
+    //     marginBottom: '10px',
+    //     marginTop:'30px'
+    // })
     $('.inlayer .text .p2').text(font)
     $('.inlayer .text .p3 span').eq(0).before(color1)
     $('.inlayer .text .p3 span').eq(0).css({
